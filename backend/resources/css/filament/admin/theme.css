@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '../../../../vendor/filament/filament/resources/css/base.css';
+@config 'tailwind.config.js';
+
+@layer components {
+
+    /* === 1. GLOBAL BACKGROUND === */
+    body {
+        background-color: #f1f5f9 !important;
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+
+    /* === 2. SIDEBAR — Alive & Breathing === */
+    aside.fi-sidebar {
+        background: linear-gradient(160deg, #001f4d 0%, #003366 40%, #2D5DA1 100%);
+        border-right: none !important;
+        box-shadow: 4px 0 24px rgba(0, 30, 80, 0.3);
+    }
+
+    /* Muted inactive items */
+    aside.fi-sidebar .fi-sidebar-item-label,
+    aside.fi-sidebar .fi-sidebar-item-icon {
+        color: rgba(186, 210, 255, 0.7) !important;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    /* Hover effect on sidebar items */
+    aside.fi-sidebar .fi-sidebar-item:hover .fi-sidebar-item-label,
+    aside.fi-sidebar .fi-sidebar-item:hover .fi-sidebar-item-icon {
+        color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    /* The "glowing" active item */
+    aside.fi-sidebar .fi-sidebar-item-active {
+        background: rgba(255, 255, 255, 0.12) !important;
+        border-radius: 0.75rem !important;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        margin: 2px 12px !important;
+    }
+    aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-label,
+    aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-icon {
+        color: white !important;
+        font-weight: 700;
+    }
+
+    /* === 3. GLASS TOPBAR === */
+    header.fi-topbar {
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(16px) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* === 4. ELEVATED CARDS & TABLES === */
+    .fi-wi-stats-overview-stat {
+        background: white !important;
+        border-radius: 1.25rem !important;
+        border: 1px solid rgba(0, 0, 0, 0.06) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .fi-wi-stats-overview-stat:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .fi-ta-ctn, .fi-section {
+        background: white !important;
+        border-radius: 1.25rem !important;
+        border: 1px solid rgba(0, 0, 0, 0.06) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+        overflow: hidden;
+    }
+
+    /* === 5. TABLE ROWS — Interactive === */
+    .fi-ta-row {
+        transition: background-color 0.15s ease;
+    }
+    .fi-ta-row:hover {
+        background-color: #f8faff !important;
+    }
+
+    /* === 6. TYPOGRAPHY — Sharp Headings === */
+    .fi-header-heading {
+        font-weight: 800 !important;
+        letter-spacing: -0.04em !important;
+        color: #0f172a !important;
+    }
+
+    /* === 7. BREADCRUMB SPACING === */
+    .fi-main {
+        padding: 1.5rem 2rem !important;
+    }
+}
