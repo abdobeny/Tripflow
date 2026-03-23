@@ -9,12 +9,21 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-     public function index()
+     public function index(Request $request)
     {
-        $services = Service::with('category')->where('is_active', true)->get();
-        
+        $services = Service::with(['category', 'destination'])
+            ->when($request->category_id, fn ($q) =>
+                $q->where('category_id', $request->category_id)
+            )
+            ->when($request->destination_id, fn ($q) =>
+                $q->where('destination_id', $request->destination_id)
+            )
+            ->where('is_active', true)
+            ->get();
+
         return ServiceResource::collection($services);
     }
+
     public function show(Service $service){
         return new ServiceResource($service->load('category'));
     }

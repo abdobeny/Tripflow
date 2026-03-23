@@ -11,9 +11,20 @@
     /* === 1. GLOBAL BACKGROUND === */
     body {
         background-color: #f1f5f9 !important;
-        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
         font-family: 'Plus Jakarta Sans', sans-serif !important;
+        position: relative;
     }
+
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 0;
+    }
+
 
     /* === 2. SIDEBAR — Alive & Breathing === */
     aside.fi-sidebar {
@@ -36,18 +47,18 @@
         color: rgba(255, 255, 255, 0.95) !important;
     }
 
-    /* The "glowing" active item */
     aside.fi-sidebar .fi-sidebar-item-active {
-        background: rgba(255, 255, 255, 0.12) !important;
+        background: linear-gradient(90deg, #FF9F1C 0%, #FFBF69 100%) !important;
         border-radius: 0.75rem !important;
-        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 12px rgba(255, 159, 28, 0.4);
         margin: 2px 12px !important;
     }
-    aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-label,
-    aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-icon {
-        color: white !important;
-        font-weight: 700;
-    }
+        aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-label,
+        aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-icon {
+            color: #001f4d !important; /* Dark Navy on Gold — perfect contrast */
+            font-weight: 700;
+        }
+
 
     /* === 3. GLASS TOPBAR === */
     header.fi-topbar {

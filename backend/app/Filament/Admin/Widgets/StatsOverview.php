@@ -18,7 +18,10 @@ class StatsOverview extends BaseWidget
                 ->color('success'),
             Stat::make('Pending Approvals', \App\Models\Reservation::where('status', 'pending')->count())
                 ->description('Need your attention')
+                ->descriptionColor('danger') // ← This makes it RED
+                ->icon('heroicon-o-exclamation-circle')
                 ->color('warning'),
+
             Stat::make('Total Revenue', '$' . number_format(\App\Models\Reservation::sum('total_price'), 2))
                     ->description('From all reservations')
                     ->color('primary'),

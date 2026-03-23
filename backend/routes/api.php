@@ -22,4 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', fn (Request $request) => $request->user());
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/reservations', [ReservationController::class, 'store']);
+    Route::get('/my-reservations', [ReservationController::class, 'index']);
+    Route::get('/reservations/{reservation}/whatsapp',
+    [ReservationController::class, 'whatsapp']);
 });
