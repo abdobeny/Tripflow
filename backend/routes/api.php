@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ReviewController;
 
 Route::get('/', fn () => response()->json(['message' => 'TripFlow API Online']));
 
@@ -25,4 +26,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/my-reservations', [ReservationController::class, 'index']);
     Route::get('/reservations/{reservation}/whatsapp',
     [ReservationController::class, 'whatsapp']);
+    Route::post('/reviews', [ReviewController::class, 'store']);
 });

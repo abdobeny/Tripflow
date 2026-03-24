@@ -23,6 +23,11 @@ class ServiceResource extends JsonResource
             'duration_hours' => $this->duration_hours,
             'image_url' => $this->image ? asset('storage/' . $this->image) : null,
             'category' => new CategoryResource($this->whenLoaded('category')),
+            'destination' => [
+                'id' => $this->destination_id,
+                'name' => $this->destination?->name,
+                'country' => $this->destination?->country,
+            ],
         ];
     }
 }

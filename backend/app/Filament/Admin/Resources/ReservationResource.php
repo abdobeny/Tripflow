@@ -92,6 +92,16 @@ class ReservationResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\Action::make('confirm')
+                    ->label('Confirm')
+                    ->icon('heroicon-m-check-circle')
+                    ->color('success')
+                    ->button()
+                    ->requiresConfirmation()
+                    ->hidden(fn (Reservation $record) => $record->status !== 'pending')
+                    ->action(function (Reservation $record) {
+                        $record->update(['status' => 'confirmed']);
+                    }),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([

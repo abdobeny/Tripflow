@@ -29,6 +29,12 @@ class ServiceResource extends Resource
                     ->searchable()
                     ->preload(),
 
+                Forms\Components\Select::make('destination_id')
+                    ->relationship('destination', 'name')
+                    ->required()
+                    ->searchable()
+                    ->preload(),
+
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)
@@ -71,6 +77,9 @@ class ServiceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('category.name')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('destination.name')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
